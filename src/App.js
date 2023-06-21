@@ -1,6 +1,7 @@
-import { Header } from './components/Header'
+import { Header } from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
+import AddMovie from './components/AddMovie';
 
 import { useState } from "react";
 import movies from "./data/movies.json";
@@ -11,13 +12,23 @@ function App() {
 
   const [moviesToDisplay, setMoviesToDisplay] = useState(movies);
 
-  const deleteMovie = (movieId) => {
+  const createMovie = (newMovie) => {
+    // new list = an array with the new movie + all the movies we had before
+    const newList = [newMovie, ...moviesToDisplay];
+
+    // update state
+    setMoviesToDisplay(newList);
+  }
+
+
+  const deleteMovie = (movieTitle) => {
        
     const newList = moviesToDisplay.filter((element)=> {
-        return element.id !== movieId;
+        return element.title !== movieTitle;
     })
     setMoviesToDisplay(newList);
 }
+
 
 
 
@@ -25,6 +36,8 @@ function App() {
     <div className="App">
 
     <Header numOfMovies={moviesToDisplay.length}/>
+
+    <AddMovie callbackToCreate={createMovie}/>
 
     <Main listOfMovies={moviesToDisplay} callbackToDelete={deleteMovie}/>
 

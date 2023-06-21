@@ -1,5 +1,5 @@
 export function Movie(props) {
-    console.log(props.movie)
+    //console.log(props.movie)
 
    return(
         <>
@@ -14,7 +14,7 @@ export function Movie(props) {
                           }
                 </>
                 <p>
-                    <button onClick={()=>{props.callbackToDelete(props.movie.id)}}>Delete</button> 
+                    <button onClick={()=>{props.callbackToDelete(props.movie.title)}}>Delete</button> 
                     {/* we are able to send the function deleteMovie as a props from the main.js */}
                 </p>
                 </div>
