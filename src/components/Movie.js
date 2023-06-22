@@ -6,7 +6,7 @@ export function Movie(props) {
         
                  <div className="card">   
                 <p>{props.movie.title}</p>
-                <p>  {props.movie.rating > 8 ? <p> Recommended</p> : props.movie.rating} </p>
+                <p>  {props.movie.rating > 8 ?  "Recommended" : props.movie.rating} </p>
                 <>
                 { props.movie.imgURL 
                               ? <img src={props.movie.imgURL} alt="movieImg" /> 
